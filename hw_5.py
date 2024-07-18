@@ -19,19 +19,20 @@ class Game:
         self.enemy = Player(3, 3)
     
     def run(self):
-        print("Welcome to the game!")
+        print("Добро пожаловать в игру!")
         while True:
-            print(f"Player position: ({self.player.x}, {self.player.y})")
-            print(f"Enemy position: ({self.enemy.x}, {self.enemy.y})")
-            command = input("Enter a command (up/down/left/right/exit): ").lower()
-            if command == 'exit':
-                print("Goodbye!")
+            print(f"Позиция игрока: ({self.player.x}, {self.player.y})")
+            print(f"Позиция врага: ({self.enemy.x}, {self.enemy.y})")
+            command = input("Введите команду (вверх/вниз/налево/направо/выход): ").lower()
+            if command == 'выход':
+                print("До свидания!")
                 break
-            elif command in ['up', 'down', 'left', 'right']:
-                self.player.move(command)
+            elif command in ['вверх', 'вниз', 'налево', 'направо']:
+                direction = {'вверх':'up','вниз':'down','влево': 'left','вправо': 'right'}[command]
+                self.player.move(direction)
             else:
-                print("Invalid command!")
+                print("Неверная команда!")
 
-if  name == "main":
-    game = Game()
-    game.run()
+game = Game()
+game.run()
+           
